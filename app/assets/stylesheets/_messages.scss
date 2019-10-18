@@ -30,19 +30,21 @@
       }
     }
   }
-  &__groups{
+  .groups {
     height: calc(100vh - 100px);
     background-color: #2f3e51;
     padding: 20px 20px 0;
     overflow: scroll;
-    &__1{
+    .group {
       margin-bottom: 40px;
-      &__name{
+      &__name {
         font-size: 15px;
         margin-bottom: 5px;
+        color:#eee;
       }
-      &__2{
+      &__message {
         font-size: 11px;
+        color:#eee;
       }
     }
   }
@@ -85,83 +87,70 @@
       }
     }
   }
-  &__messages{
+  .messages{
     height: calc(100vh - 190px);
-    padding: 46px 40px;
+    padding: 46px 40px 0;
     background-color: #fafafa;
     overflow: scroll;
-    &__1{
-      padding-bottom: 40px;
-      &__2{
+    .message {
+      .upper-message {
         display: flex;
-        margin-bottom: 10px;
-        &--3{
+        &__user-name {
           font-size: 16px;
           color: #434a54;
+          font-weight: bold;
         }
-        &__4{
+        &__date {
           color: $grercolor;
           font-size: 12px;
-          margin-left: 10px;
+          padding-left: 10px;
         }
       }
-      &__5{
+      .lower-message {
+        margin-top: 10px;
+        &__content {
         color: #434a54;
         font-size: 14px;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
+        }
       }
-      
     }
   }
-  &__from{
+
+  .form {
+    background-color: #DDDDDD;
+    box-sizing: border-box;
     height: 90px;
-    padding: 20px 40px;
-    background-color: #ddd;
-    &__from{
-      display: flex;
-      &__input-box{
-        position: relative;
-        width: 100%;
-        background-color: #eee;
-        &__text{
-          height: 50px;
-          width: 100%;
-          padding: 0 40px 0 10px;
-          line-height: 50px;
-          color: #434a54;
-          border-style: none;
-        }
-        &__image{
-          font-size: 1.3rem;
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          cursor: pointer;
-          &__fa{
-            display: inline-block;
-            font: normal normal normal 14px/1 FontAwesome;
-            font-size: inherit;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            color: black;
-          }
-          &__file{
-            display: none;
-          }
-        }
+    padding: 20px 50px 20px 40px;
+    &__message {
+      border: none;
+      float: left;
+      height: 50px;
+      width: calc(100% - 150px);
+    }
+    &__mask {
+      background-color: white;
+      float: left;
+      height: 50px;
+      padding-right: 10px;
+      &__image {
+        font-size: 20px;
+        line-height: 50px;
       }
-      &__submit-btn{
-        width: 100px;
-        height: 50px;
-        padding: 0 30px;
-        margin-left: 15px;
-        background-color: $blur;
-        color: $whitecolor;
-        cursor: pointer;
-        &__send{
-          line-height:50px;
-        }
+      .hidden {
+        display: none;
       }
     }
+    &__submit {
+      background-color: blue;
+      border: none;
+      color: white;
+      float: right;
+      font-size: 16px;
+      height: 50px;
+      margin-left: 15px;
+      padding: 0 30px;
+    }
   }
-}
+}   
+

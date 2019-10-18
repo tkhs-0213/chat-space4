@@ -1,21 +1,3 @@
-.side
-  .side__header
-    .side__header__box
-      .side__header__box--user-name
-        dfghj
-      .side__header__box--menu
-        .side__header__box--menu__new-group
-        =link_to "", class: "side__header__box--menu__new-group" do
-          =fa_icon 'edit'
-        .side__header__box--menu__edit-user
-        =link_to "", class: "side__header__box--menu__edit-user" do
-          =fa_icon 'cog'
-  .side__groups
-    .side__groups__1
-      .side__groups__1__name
-        
-      .side__groups__1__2
-        
 .main
   .main__header
     .main__header__left-box
@@ -23,30 +5,16 @@
         aaa
       .main__header__left-box__member-list
         Member:#777777
-
     .main__header__2227
       .main__header__2227__btn
         Exit
-  .main__messages
-    .main__messages__1
-      .main__messages__1__2
-        .main__messages__1__2--3
-          AAAA
-        .main__messages__1__2__4
-          ddddd
-      .main__messages__1__2__5
-        sssss
-  .main__from
-    .main__from__from [@group, @message] do |f|
-      .main__from__from__input-box
-        .main__from__from__input-box__text
-          aaaaaaaaaaaaaaaa
-        .main__from__from__input-box__image
-          .main__from__from__input-box__image__fa
-          =link_to "",class: "main__from__from__input-box__image__fa" do
-            =fa_icon 'photo'
-          .main__from__from__input-box__image__file
-      .main__from__from__submit-btn
-        .main__from__from__submit-btn__send
-          Send
-          
+  .messsages
+    = render @messages
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit
