@@ -51,9 +51,10 @@
 }
 
 .main{
-    width: calc(100vw - 300px);
-    float: left;
-  &__header{
+  height: 100%;
+  width: calc(100vw - 300px);
+  float: left;
+  .header{
     height: 100px;
     padding: 0 40px;
     display: flex;
@@ -89,7 +90,7 @@
   }
   .messages{
     height: calc(100vh - 190px);
-    padding: 46px 40px 0;
+    padding: 46px 40px;
     background-color: #fafafa;
     overflow: scroll;
     .message {
@@ -142,7 +143,7 @@
       }
     }
     &__submit {
-      background-color: blue;
+      background-color: #38aef0;
       border: none;
       color: white;
       float: right;
