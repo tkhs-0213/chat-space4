@@ -33,8 +33,6 @@ Things you may want to cover:
 - belongs_to :group
 - belongs_to :user
 
-<<<<<<< Updated upstream
-=======
 ## usersテーブル
 
 |Column|Type|Options|
@@ -70,5 +68,3 @@ Things you may want to cover:
 - belongs_to :user
 
 
-
->>>>>>> Stashed changes
