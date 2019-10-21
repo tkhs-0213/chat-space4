@@ -1,98 +1,99 @@
-*{
+.side-bar {
   box-sizing: border-box;
-}
-
-.side{
-    width: 300px;
-    color: $whitecolor;
-    float: left;
-  &__header{
+  width: 300px;
+  color: $whitecolor;
+  float: left;
+  .header {
     background-color: #253141;
     height: 100px;
-    display: flex;
-    align-items: center;
+    line-height: 100px;
     padding: 0 20px;
-    &__box{
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
+    position: relative;
+    &__name {
+      display: inline-block;
+      font-size: 16px;
       font-weight: bold;
-      &--menu{
-        display: flex;
-        &__new-group{
-          margin-left: 0.3rem;
-          color: $whitecolor;
-        }
-        &__edit-user{
-          margin-left: 0.3rem;
-          color: $whitecolor;
-        }
+    }
+    &__lists {
+      display: inline-block;
+      position: absolute;
+      right: 20px;
+
+      .list {
+         display: inline-block;
+      }
+      .icon {
+        font-size: 16px;
+        color: $whitecolor;
       }
     }
   }
+
   .groups {
     height: calc(100vh - 100px);
     background-color: #2f3e51;
-    padding: 20px 20px 0;
-    overflow: scroll;
+    padding: 0 20px;
     .group {
-      margin-bottom: 40px;
+      box-sizing: border-box;
+      padding: 20px 0 40px;
       &__name {
         font-size: 15px;
-        margin-bottom: 5px;
         color:#eee;
       }
       &__message {
         font-size: 11px;
         color:#eee;
+        margin-top: 5px;
       }
     }
   }
 }
 
-.main{
-  height: 100%;
+.chat {
   width: calc(100vw - 300px);
-  float: left;
-  .header{
+  float: right;
+  .header {
     height: 100px;
     padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: solid 1px 
-        #eee;
-    overflow: scroll;
-    &__left-box{
-      margin-top: 35px;
-      &__current-group{
+    .left-header {
+      float: left;
+      &__title {
         font-size: 20px;
         color: #333;
-        margin-bottom: 15px;
+        margin-top: 35px;
       }
-      &__member-list{
+      &__members{
         display: flex;
         font-size: 12px;
         color: #999999;
+        margin-top: 15px;
+        .member {
+          display: inline-block;
+          padding-right: 5px;
+        }
       }
     }
-    &__2227{
+  
+    .right-header {
+      border: solid 1px $blur;
       color: $blur;
-      &__btn{
-        height: 40px;
-        line-height: 40px;
-        padding: 0 20px;
-        margin-top: 30px;
-        border: solid 1px $blur;
-        position: absolute;
-        right: 40px;
+      float: right;
+      height: 40px;
+      line-height: 40px;
+      margin-top: 28px;
+      padding: 0 20px;
+      &__button {
+        color: $blur;
+        text-decoration: none;
       }
     }
   }
-  .messages{
-    height: calc(100vh - 190px);
-    padding: 46px 40px;
+  .messages {
+    height: calc(100vh - 100px - 90px);
     background-color: #fafafa;
+    box-sizing: border-box;
     overflow: scroll;
+    padding: 46px 40px 0;
     .message {
       .upper-message {
         display: flex;
@@ -110,9 +111,9 @@
       .lower-message {
         margin-top: 10px;
         &__content {
-        color: #434a54;
-        font-size: 14px;
-        margin-bottom: 40px;
+          color: #434a54;
+          font-size: 14px;
+          margin-bottom: 40px;
         }
       }
     }
@@ -123,6 +124,9 @@
     box-sizing: border-box;
     height: 90px;
     padding: 20px 50px 20px 40px;
+    position: absolute;
+    bottom: 0;
+    width: calc(100vw - 300px);
     &__message {
       border: none;
       float: left;
@@ -146,12 +150,10 @@
       background-color: #38aef0;
       border: none;
       color: white;
-      float: right;
       font-size: 16px;
       height: 50px;
       margin-left: 15px;
       padding: 0 30px;
     }
   }
-}   
-
+}
