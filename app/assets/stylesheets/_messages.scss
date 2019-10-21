@@ -8,6 +8,7 @@
     height: 100px;
     line-height: 100px;
     padding: 0 20px;
+    position: relative;
     &__name {
       display: inline-block;
       font-size: 16px;
@@ -15,7 +16,9 @@
     }
     &__lists {
       display: inline-block;
-      float:　right;
+      position: absolute;
+      right: 20px;
+
       .list {
          display: inline-block;
       }

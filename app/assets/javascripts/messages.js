@@ -10,9 +10,12 @@ $(function(){
                   </div>
                 </div>
                 <div class="lower-message">
-                  <p class="lower-message__content">
-                    ${ message.content }
-                  </p>
+                  <div class="lower-message__content">
+                      ${ message.content }    
+                  </div>
+                  <div class="lower-message__image">
+                    <img src='${ message.image }'
+                  </div>
                 </div>
               </div>`
   return html;
