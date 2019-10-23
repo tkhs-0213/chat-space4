@@ -23,6 +23,7 @@ $(function() {
   }
 
   $('#user-search-field').on("keyup", function(e) {
+
     e.preventDefault();
     var input = $('#user-search-field').val()
 
@@ -34,6 +35,7 @@ $(function() {
     })
 
     .done(function(users) {
+      $("#user-search-result").empty();
       if (users.length !== 0) {
         users.forEach(function(user){
           appendUser(user);
@@ -47,16 +49,16 @@ $(function() {
       alert('error');
     })
   
-    $("#user-search-result").on('click', ".user-search-add", function(e) {
-      e.preventDefault();
-      $(this).parent().remove();
-      var id = $(this).data('user-id');
-      var name = $(this).data('user-name');
-       addUser(id,name);
-    });
-    $("#chat-group-users").on("click", ".user-search-remove", function(e){
-      e.preventDefault();
-      $(this).parent().remove();
-    });
+  $("#user-search-result").on('click', ".user-search-add", function(e) {
+    e.preventDefault();
+    $(this).parent().remove();
+    var id = $(this).data('user-id');
+    var name = $(this).data('user-name');
+      addUser(id,name);
+  });
+  $("#chat-group-users").on("click", ".user-search-remove", function(e){
+    e.preventDefault();
+    $(this).parent().remove();
+  });
   });
 });
