@@ -104,13 +104,14 @@ $(function(){
       var html = buildMessageHTML(message);
       $('.messages').append(html)
       $("#new_message")[0].reset();
+      $('.form__submit').prop('disabled', false);
       scrollBottom();
     })
     .fail(function(){
       alert('error');
     })
     .always(function(message){
-      $('.form__submit').prop('disabled', false);
+      $('.send').prop('disabled', false);
     })
   })
   setInterval(reloadMessages, 5000);
