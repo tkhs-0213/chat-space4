@@ -1,4 +1,4 @@
-$function(){
+$(function(){
   var buildMessageHTML = function(message) {
     // if (message.content && message.image.url) {
     //   var html =`<div class="message" data-message-id='${message.id}'>
@@ -114,4 +114,4 @@ $function(){
     })
   })
   setInterval(reloadMessages, 5000);
-};
+});
