@@ -14,10 +14,15 @@ $(function(){
                     </div>
                     <div class="lower-message">
                       <div class="lower-message__content">
+
                           ${ content }    
                       </div>
                       <div class="lower-message__image">
                         <img src='${ image }'
+                         　${ message.content }    
+                      </div>
+                      <div class="lower-message__image">
+                        <img src='${ message.image}'
                       </div>
                     </div>
                 　</div>`
@@ -45,6 +50,12 @@ $(function(){
     } else if (message.image.url) {
       var nocontent = ""
       var image = message.image
+                          ${ message.content }    
+                      </div>
+                    </div>
+              　  </div>`
+    }else if (message.image.url) {
+      
       var html =`<div class="message" data-message-id='${message.id}'>
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -60,6 +71,10 @@ $(function(){
                       </div>
                       <div class="lower-message__image">
                         <img src='${ image }'
+                          ${ message.content }    
+                      </div>
+                      <div class="lower-message__image">
+                        <img src='${ message.image }'
                       </div>
                     </div>
                   </div>`
