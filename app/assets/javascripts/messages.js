@@ -15,7 +15,7 @@ $(function(){
                           ${ message.content }    
                       </div>
                       <div class="lower-message__image">
-                        <img src='${ message.image.url }'
+                        <img src='${ message.image}'
                       </div>
                     </div>
                 　</div>`
@@ -51,7 +51,7 @@ $(function(){
                           ${ message.content }    
                       </div>
                       <div class="lower-message__image">
-                        <img src='${ message.image.url }'
+                        <img src='${ message.image }'
                       </div>
                     </div>
                   </div>`
