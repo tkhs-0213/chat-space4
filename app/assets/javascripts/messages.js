@@ -1,6 +1,8 @@
 $(function(){
   var buildMessageHTML = function(message) {
     if (message.content && message.image.url) {
+      var content = message.content
+      var image = message.image
       var html =`<div class="message" data-message-id='${message.id}'>
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -12,14 +14,16 @@ $(function(){
                     </div>
                     <div class="lower-message">
                       <div class="lower-message__content">
-                          ${ message.content }    
+                          ${ content }    
                       </div>
                       <div class="lower-message__image">
-                        <img src='${ message.image}'
+                        <img src='${ image }'
                       </div>
                     </div>
                 　</div>`
     } else if (message.content) {
+      var content = message.content
+      var noImage = ""
       var html =`<div class="message" data-message-id='${message.id}'>
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -31,12 +35,16 @@ $(function(){
                     </div>
                     <div class="lower-message">
                       <div class="lower-message__content">
-                          ${ message.content }    
+                          ${ content }    
+                      </div>
+                      <div class="lower-message__image">
+                        <img src='${ noImage }'
                       </div>
                     </div>
               　  </div>`
-    }else if (message.image.url) {
-      
+    } else if (message.image.url) {
+      var nocontent = ""
+      var image = message.image
       var html =`<div class="message" data-message-id='${message.id}'>
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -48,10 +56,10 @@ $(function(){
                     </div>
                     <div class="lower-message">
                       <div class="lower-message__content">
-                          ${ message.content }    
+                          ${ nocontent }    
                       </div>
                       <div class="lower-message__image">
-                        <img src='${ message.image }'
+                        <img src='${ image }'
                       </div>
                     </div>
                   </div>`
