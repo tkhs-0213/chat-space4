@@ -1,6 +1,6 @@
 $(function(){
   var buildMessageHTML = function(message) {
-    if (message.content && message.image.url) {
+    if (message.content && message.image) {
       var content = message.content
       var image = message.image
       var html =`<div class="message" data-message-id='${message.id}'>
@@ -13,7 +13,7 @@ $(function(){
                       </div>
                     </div>
                     <div class="lower-message">
-                      <div class="lower-message__content">
+                      <div class="lower-message__content" data-message-id='${message.id}'>
                           ${ content }    
                       </div>
                       <div class="lower-message__image">
@@ -33,7 +33,7 @@ $(function(){
                       </div>
                     </div>
                     <div class="lower-message">
-                      <div class="lower-message__content">
+                      <div class="lower-message__content" data-message-id='${message.id}'>
                           ${ content }    
                       </div>
                       <div class="lower-message__image">
@@ -41,9 +41,10 @@ $(function(){
                       </div>
                     </div>
               　  </div>`
-    } else if (message.image.url) {
+    } else if (message.image) {
       var nocontent = ""
       var image = message.image
+
       var html =`<div class="message" data-message-id='${message.id}'>
                     <div class="upper-message">
                       <div class="upper-message__user-name">
@@ -54,12 +55,8 @@ $(function(){
                       </div>
                     </div>
                     <div class="lower-message">
-                      <div class="lower-message__content">
+                      <div class="lower-message__content" data-message-id='${message.id}'>
                           ${ nocontent }    
-                      </div>
-                      <div class="lower-message__image">
-                        <img src='${ image }'
-                          ${ message.content }    
                       </div>
                       <div class="lower-message__image">
                         <img src='${ message.image }'
@@ -71,27 +68,29 @@ $(function(){
   };
 
   var reloadMessages = function() {
-    
-    last_message_id = $('.message:last').data('id');
-    $.ajax({
-      url: "api/messages#index",
-      type: 'Get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-
-    .done(function(messages) {
-      var html ='';
-      messages.forEach(function(message) {
-        html = buildMessageHTML(message);
-      $(".messages").append(html);
-      scrollBottom();
+    // if(window.datalocation.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.message:last').data('id');
+      $.ajax({
+        url: "api/messages",
+        type: 'Get',
+        dataType: 'json',
+        data: {id: last_message_id}
       })
-    })
-    .fail(function() {
-      aleat('自動更新に失敗しました');
-    });
-  };
+
+      .done(function(messages) {
+        var html ='';
+        messages.forEach(function(message) {
+          html = buildMessageHTML(message);
+        $(".messages").append(html);
+        })
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+        
+      })
+      .fail(function() {
+        aleat('自動更新に失敗しました');
+      });
+    } 
+  
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -116,5 +115,5 @@ $(function(){
       alert('error');
     })
   })
-  setInterval(reloadMessages, 5000);
+  // setInterval(reloadMessages, 5000);
 });
