@@ -23,10 +23,9 @@ $(function() {
   }
 
   $('#user-search-field').on("keyup", function(e) {
-
     e.preventDefault();
     var input = $('#user-search-field').val()
-
+    // console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -39,6 +38,7 @@ $(function() {
       if (users.length !== 0) {
         users.forEach(function(user){
           appendUser(user);
+          // console.log(input);
         });
       }
       else {

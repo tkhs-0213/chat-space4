@@ -17,7 +17,8 @@ $(function(){
                           ${ content }    
                       </div>
                       <div class="lower-message__image">
-                        <img src='${ image }'
+                        <img src='${message.image}}'
+                      </div>
                     </div>
                 　</div>`
     } else if (message.content) {
@@ -59,7 +60,7 @@ $(function(){
                           ${ nocontent }    
                       </div>
                       <div class="lower-message__image">
-                        <img src='${ message.image }'
+                        <img src='${ image }'
                       </div>
                     </div>
                   </div>`
@@ -69,7 +70,8 @@ $(function(){
 
   var reloadMessages = function() {
     // if(window.datalocation.href.match(/\/groups\/\d+\/messages/)){
-      var last_message_id = $('.message:last').data('id');
+      var last_message_id = $('.message:last').data('message-id');
+      console.log(last_message_id);
       $.ajax({
         url: "api/messages",
         type: 'Get',
@@ -79,6 +81,7 @@ $(function(){
 
       .done(function(messages) {
         var html ='';
+        console.log(messages);
         messages.forEach(function(message) {
           html = buildMessageHTML(message);
         $(".messages").append(html);
@@ -89,13 +92,14 @@ $(function(){
       .fail(function() {
         aleat('自動更新に失敗しました');
       });
-    } 
+  }
   
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
+    console.log("aaa");
     $.ajax({
       url: url,
       type: "POST",
@@ -115,5 +119,5 @@ $(function(){
       alert('error');
     })
   })
-  // setInterval(reloadMessages, 5000);
+  setInterval(reloadMessages, 5000);
 });

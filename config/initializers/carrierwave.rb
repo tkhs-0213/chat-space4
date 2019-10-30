@@ -13,5 +13,5 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'tkhs-0213'
-  config.asset_host = 'https://s3-ここにリージョン名を入れます(※例 ap-northeast-1).amazonaws.com/ここにバケット名を入れます'
+  config.asset_host = 'https://s3-p-northeast-1.amazonaws.com/tkhs-0213'
 end
