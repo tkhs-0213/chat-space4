@@ -119,5 +119,5 @@ $(function(){
       alert('error');
     })
   })
-  setInterval(reloadMessages, 5000);
+  // setInterval(reloadMessages, 5000);
 });
