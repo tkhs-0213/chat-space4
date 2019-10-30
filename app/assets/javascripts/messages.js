@@ -17,7 +17,7 @@ $(function(){
                           ${ content }    
                       </div>
                       <div class="lower-message__image">
-                        <img src='${message.image}}'
+                        <img src='${message.image}'>
                       </div>
                     </div>
                 　</div>`
@@ -38,7 +38,7 @@ $(function(){
                           ${ content }    
                       </div>
                       <div class="lower-message__image">
-                        <img src='${ noImage }'
+                        <img src='${ noImage }'>
                       </div>
                     </div>
               　  </div>`
@@ -60,7 +60,7 @@ $(function(){
                           ${ nocontent }    
                       </div>
                       <div class="lower-message__image">
-                        <img src='${ image }'
+                        <img src='${ image }'>
                       </div>
                     </div>
                   </div>`
@@ -119,5 +119,5 @@ $(function(){
       alert('error');
     })
   })
-  // setInterval(reloadMessages, 5000);
+   setInterval(reloadMessages, 5000);
 });
