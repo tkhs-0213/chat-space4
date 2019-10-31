@@ -20,6 +20,7 @@ $(function() {
               <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
             </div>`
     $("#chat-group-users").append(html)
+    console.log("ok");
   }
 
   $('#user-search-field').on("keyup", function(e) {
@@ -55,6 +56,7 @@ $(function() {
     var id = $(this).data('user-id');
     var name = $(this).data('user-name');
       addUser(id,name);
+
   });
   $("#chat-group-users").on("click", ".user-search-remove", function(e){
     e.preventDefault();

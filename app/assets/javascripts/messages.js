@@ -68,38 +68,41 @@ $(function(){
     return html;
   };
 
-  var reloadMessages = function() {
-    // if(window.datalocation.href.match(/\/groups\/\d+\/messages/)){
-      var last_message_id = $('.message:last').data('message-id');
-      console.log(last_message_id);
-      $.ajax({
-        url: "api/messages",
-        type: 'Get',
-        dataType: 'json',
-        data: {id: last_message_id}
-      })
+  // var reloadMessages = function() {
+  //   // if(window.datalocation.href.match(/\/groups\/\d+\/messages/)){
+  //     var last_message_id = $('.message:last').data('message-id');
+  //     console.log(last_message_id);
+  //     $.ajax({
+  //       url: "api/messages",
+  //       type: 'Get',
+  //       dataType: 'json',
+  //       data: {id: last_message_id}
+  //     })
 
-      .done(function(messages) {
-        var html ='';
-        console.log(messages);
-        messages.forEach(function(message) {
-          html = buildMessageHTML(message);
-        $(".messages").append(html);
-        })
-        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+  //     .done(function(messages) {
+  //       var html ='';
+  //       // console.log(messages);
+  //       messages.forEach(function(message) 
+  
+
+  //         html = buildMessageHTML(message);
+  //       $(".messages").append(html);
+  //       })
+  //       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
         
-      })
-      .fail(function() {
-        aleat('自動更新に失敗しました');
-      });
-  }
+  //     })
+  //     .fail(function() {
+  //       aleat('自動更新に失敗しました');
+  //     });
+    
+  // }
   
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
-    console.log("aaa");
+    // console.log("aaa");
     $.ajax({
       url: url,
       type: "POST",
@@ -119,5 +122,5 @@ $(function(){
       alert('error');
     })
   })
-   setInterval(reloadMessages, 5000);
+  // setInterval(reloadMessages, 60000);
 });
