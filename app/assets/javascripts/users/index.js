@@ -3,7 +3,7 @@ $(function() {
   function appendUser(user){
   var html = `<div class="chat-group-user clearfix">
                 <p class="chat-group-user__name">${user.name}</p>
-                <a class="user-search-add chat-group-user__btn chat-group-user__btn--add js-add-btn" data-user-id=${user.id} data-user-name=${user.name}>追加</a>
+                <a class="user-search-id chat-group-user__btn chat-group-user__btn--add js-add-btn" data-user-id=${user.id} data-user-name=${user.name}>追加</a>
               </div>`;
   $("#user-search-result").append(html);               
   }
@@ -50,7 +50,7 @@ $(function() {
       alert('error');
     })
   
-  $("#user-search-result").on('click', ".user-search-add", function(e) {
+  $("#user-search-result").on('click', ".user-search-id", function(e) {
     e.preventDefault();
     $(this).parent().remove();
     var id = $(this).data('user-id');
